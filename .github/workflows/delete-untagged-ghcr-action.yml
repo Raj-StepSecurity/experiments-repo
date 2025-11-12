@@ -18,4 +18,4 @@ jobs:
           repository: ${{ github.repository }}
           package_name: experiments-repo
           untagged_only: true
-          owner_type: org
+          owner_type: user
