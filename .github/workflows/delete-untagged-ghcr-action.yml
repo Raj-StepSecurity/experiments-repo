@@ -1,0 +1,21 @@
+name: delete-untagged-ghcr-action
+on:
+  workflow_dispatch:
+
+permissions:
+  packages: write
+  contents: read
+
+jobs:
+  delete-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: step-security/delete-untagged-ghcr-action@release
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository_owner: ${{ github.repository_owner }}
+          repository: ${{ github.repository }}
+          package_name: workflow-playground
+          untagged_only: true
+          owner_type: org
