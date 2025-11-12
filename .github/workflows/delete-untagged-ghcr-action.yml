@@ -17,5 +17,5 @@ jobs:
           repository_owner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
           package_name: experiments-repo
-          untagged_only: false
+          untagged_only: true
           owner_type: user
