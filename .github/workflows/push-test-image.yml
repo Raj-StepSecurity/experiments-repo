@@ -1,0 +1,26 @@
+name: Push test image to GHCR
+on:
+  workflow_dispatch:
+
+permissions:
+  packages: write
+  contents: read
+
+jobs:
+  push-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.PAT_TOKEN }}
+
+      - name: Build and push image
+        run: |
+          IMAGE=ghcr.io/${{ github.repository_owner }}/increment-Test:test
+          docker build -t $IMAGE .
+          docker push $IMAGE
