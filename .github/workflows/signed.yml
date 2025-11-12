@@ -29,7 +29,7 @@ jobs:
           repository_owner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
           untagged_only: false
-          owner_type: org
+          owner_type: user
           with_sigs: true
 
   add_temp_pkgs3:
@@ -65,7 +65,7 @@ jobs:
           repository: ${{ github.repository }}
           package_name: p5
           untagged_only: true
-          owner_type: org
+          owner_type: user
           with_sigs: true
       - shell: bash
         run: |
@@ -87,7 +87,7 @@ jobs:
           repository_owner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
           untagged_only: false
-          owner_type: org
+          owner_type: user
           with_sigs: true
       - shell: bash
         run: |
