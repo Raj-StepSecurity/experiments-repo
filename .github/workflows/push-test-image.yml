@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 jobs:
-  push-image:
+  push-untagged:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -19,10 +19,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.PAT_TOKEN }}
 
-      - name: Build and push image
+      - name: Build and push untagged image
         run: |
           OWNER_LC=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
           IMAGE=ghcr.io/$OWNER_LC/experiments-repo
-          echo "Building and pushing $IMAGE"
+          echo "Building and pushing untagged image: $IMAGE"
           docker build -t $IMAGE .
           docker push $IMAGE
