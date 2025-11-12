@@ -26,7 +26,7 @@ jobs:
         env:
           ACTIONS_STEP_DEBUG: 'true'
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           repository_owner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
           untagged_only: false
@@ -70,13 +70,13 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.PAT_TOKEN }}
       - uses: step-security/delete-untagged-ghcr-action@release
         id: deleted-action
         env:
           ACTIONS_STEP_DEBUG: 'true'
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           repository_owner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
           untagged_only: true
@@ -97,7 +97,7 @@ jobs:
       - uses: step-security/delete-untagged-ghcr-action@release
         id: deleted-action
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           repository_owner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
           untagged_only: true
@@ -120,7 +120,7 @@ jobs:
           ACTIONS_STEP_DEBUG: 'true'
         id: deleted-action
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           repository_owner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
           package_name: p1
@@ -141,7 +141,7 @@ jobs:
       - uses: step-security/delete-untagged-ghcr-action@release
         id: deleted-action
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           repository_owner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
           package_name: p2, p3
@@ -164,7 +164,7 @@ jobs:
       - uses: step-security/delete-untagged-ghcr-action@release
         id: deleted-action
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           repository_owner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
           untagged_only: false
@@ -214,7 +214,7 @@ jobs:
           ACTIONS_STEP_DEBUG: 'true'
         id: deleted-action
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           repository_owner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
           package_name: multiple_platforms
@@ -236,7 +236,7 @@ jobs:
       - uses: step-security/delete-untagged-ghcr-action@release
         id: deleted-action
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           repository_owner: ${{ github.repository_owner }}
           repository: ${{ github.repository }}
           untagged_only: false
