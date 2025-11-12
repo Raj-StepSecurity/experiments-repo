@@ -24,3 +24,4 @@ jobs:
           package_name: experiments-repo
           untagged_only: true
           owner_type: user
+          except_untagged_multiplatform: false
