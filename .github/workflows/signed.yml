@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: step-security/delete-untagged-ghcr-action@release
+      - uses: step-security/delete-untagged-ghcr-action@Raj-StepSecurity-patch-3
         with:
           token: ${{ secrets.PAT_TOKEN }}
           repository_owner: ${{ github.repository_owner }}
@@ -57,7 +57,7 @@ jobs:
     if: github.event_name != 'workflow_dispatch' || inputs.skip_delete == false
     steps:
       - uses: actions/checkout@v5
-      - uses: step-security/delete-untagged-ghcr-action@release
+      - uses: step-security/delete-untagged-ghcr-action@Raj-StepSecurity-patch-3
         id: deleted-action
         with:
           token: ${{ secrets.PAT_TOKEN }}
@@ -80,7 +80,7 @@ jobs:
     if: github.event_name != 'workflow_dispatch' || inputs.skip_delete == false
     steps:
       - uses: actions/checkout@v5
-      - uses: step-security/delete-untagged-ghcr-action@release
+      - uses: step-security/delete-untagged-ghcr-action@Raj-StepSecurity-patch-3
         id: deleted-action
         with:
           token: ${{ secrets.PAT_TOKEN }}
