@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: step-security/delete-untagged-ghcr-action@release
+      - uses: step-security/delete-untagged-ghcr-action@Raj-StepSecurity-patch-3
         env:
           ACTIONS_STEP_DEBUG: 'true'
         with:
@@ -71,7 +71,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.PAT_TOKEN }}
-      - uses: step-security/delete-untagged-ghcr-action@release
+      - uses: step-security/delete-untagged-ghcr-action@Raj-StepSecurity-patch-3
         id: deleted-action
         env:
           ACTIONS_STEP_DEBUG: 'true'
@@ -94,7 +94,7 @@ jobs:
     needs:   clean_untagged_pkgs1
     steps:
       - uses: actions/checkout@v5
-      - uses: step-security/delete-untagged-ghcr-action@release
+      - uses: step-security/delete-untagged-ghcr-action@Raj-StepSecurity-patch-3
         id: deleted-action
         with:
           token: ${{ secrets.PAT_TOKEN }}
@@ -115,7 +115,7 @@ jobs:
     needs: clean_untagged_pkgs2
     steps:
       - uses: actions/checkout@v5
-      - uses: step-security/delete-untagged-ghcr-action@release
+      - uses: step-security/delete-untagged-ghcr-action@Raj-StepSecurity-patch-3
         env:
           ACTIONS_STEP_DEBUG: 'true'
         id: deleted-action
@@ -138,7 +138,7 @@ jobs:
     needs: clean_untagged_pkgs2
     steps:
       - uses: actions/checkout@v5
-      - uses: step-security/delete-untagged-ghcr-action@release
+      - uses: step-security/delete-untagged-ghcr-action@Raj-StepSecurity-patch-3
         id: deleted-action
         with:
           token: ${{ secrets.PAT_TOKEN }}
@@ -161,7 +161,7 @@ jobs:
       - delete_multiple_packages
     steps:
       - uses: actions/checkout@v5
-      - uses: step-security/delete-untagged-ghcr-action@release
+      - uses: step-security/delete-untagged-ghcr-action@Raj-StepSecurity-patch-3
         id: deleted-action
         with:
           token: ${{ secrets.PAT_TOKEN }}
@@ -209,7 +209,7 @@ jobs:
     needs: add_temp_pkgs_multiple_platforms_again
     steps:
       - uses: actions/checkout@v5
-      - uses: step-security/delete-untagged-ghcr-action@release
+      - uses: step-security/delete-untagged-ghcr-action@Raj-StepSecurity-patch-3
         env:
           ACTIONS_STEP_DEBUG: 'true'
         id: deleted-action
@@ -233,7 +233,7 @@ jobs:
     needs: delete_multiple_platforms_except_untagged_multiplatform
     steps:
       - uses: actions/checkout@v5
-      - uses: step-security/delete-untagged-ghcr-action@release
+      - uses: step-security/delete-untagged-ghcr-action@Raj-StepSecurity-patch-3
         id: deleted-action
         with:
           token: ${{ secrets.PAT_TOKEN }}
