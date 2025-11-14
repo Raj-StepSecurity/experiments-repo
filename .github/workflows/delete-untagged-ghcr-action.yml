@@ -16,7 +16,7 @@ jobs:
           egress-policy: audit
           
       - uses: actions/checkout@v5
-      - uses: step-security/delete-untagged-ghcr-action@release
+      - uses: step-security/delete-untagged-ghcr-action@main
         with:
           token: ${{ secrets.PAT_TOKEN }}
           repository_owner: ${{ github.repository_owner }}
