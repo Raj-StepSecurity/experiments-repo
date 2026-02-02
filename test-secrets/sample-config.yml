@@ -1,0 +1,27 @@
+# Sample configuration file for testing Gitleaks detection
+# This file intentionally contains fake secrets for testing purposes
+
+database:
+  host: localhost
+  port: 5432
+  username: admin
+  # This is a fake AWS access key for testing - NOT REAL
+  aws_access_key_id: AKIAIOSFODNN7EXAMPLE
+  aws_secret_access_key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
+api:
+  # Fake GitHub token for testing - NOT REAL
+  github_token: ghp_1234567890abcdefghijklmnopqrstuvwxyz12
+
+  # Fake Slack webhook for testing - NOT REAL
+  slack_webhook: https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
+
+authentication:
+  # Fake JWT secret for testing - NOT REAL
+  jwt_secret: super_secret_jwt_key_that_should_not_be_committed_123456
+
+  # Fake private key for testing - NOT REAL
+  private_key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEpAIBAAKCAQEA1234567890ABCDEFGHIJK
+    -----END RSA PRIVATE KEY-----
