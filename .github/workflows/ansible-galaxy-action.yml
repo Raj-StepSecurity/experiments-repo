@@ -1,23 +1,46 @@
-
 name: ansible-galaxy-action
 
 on:
   workflow_dispatch:
+    inputs:
+      action-tag:
+        description: 'Tag for the action'
+        required: true
+        default: 'main'
 
 jobs:
   test-galaxy-import:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Harden Runner
-        uses: step-security/harden-runner@v2
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@rc
         with:
           egress-policy: audit
 
+      - name: Run ansible-galaxy-action in test mode
+        uses: step-security/dynamic-uses@v1
+        with:
+          uses: step-security/ansible-galaxy-action@${{ github.event.inputs.action-tag }}
+          with: |
+            {
+              "galaxy_api_key": ${{ toJson(secrets.GALAXY_API_KEY) }}
+            }
+
+  test-galaxy-import-main:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@rc
+        with:
+          egress-policy: audit
 
       - name: Run ansible-galaxy-action in test mode
         uses: step-security/ansible-galaxy-action@main
         with:
-          galaxy_api_key: ${{ secrets.galaxy_api_key }}
+          galaxy_api_key: ${{ secrets.GALAXY_API_KEY }}
